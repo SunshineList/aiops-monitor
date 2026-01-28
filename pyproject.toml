@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aiops-monitor"
-version = "0.1.0"
+version = "0.1.1"
 description = "AI-powered log monitoring and auto-fix SDK"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
-    {name = "AI-Ops Team"}
+    {name = "Tuple"}
 ]
 keywords = ["monitoring", "logging", "aiops", "auto-fix", "error-tracking"]
 classifiers = [

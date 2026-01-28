@@ -51,8 +51,27 @@ AIOPS_MONITOR = {
     'api_url': 'http://your-monitor-server:8000/api/v1',
     'api_key': 'your-api-key',
     'project_name': 'My Django Project',
-    'log_levels': ['ERROR', 'CRITICAL'],
-    'async': True,
+}
+
+# 3. (可选) 手动配置日志处理器
+# 如果你的项目自定义了 LOGGING 字典，建议手动添加 handler 以防止被覆盖
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'aiops': {
+            'level': 'ERROR',
+            'class': 'aiops_monitor.integrations.django.DjangoAIOpsHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['aiops'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        # 你也可以添加其他 logger
+    },
 }
 ```
 

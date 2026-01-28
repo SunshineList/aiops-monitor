@@ -20,16 +20,17 @@ class MonitoringHandler(logging.Handler):
     
     def __init__(
         self,
-        client: MonitorClient,
-        config: MonitorConfig,
+        client: Optional[MonitorClient] = None,
+        config: Optional[MonitorConfig] = None,
         level: int = logging.ERROR
     ):
         super().__init__(level)
         self.client = client
         self.config = config
+        self.enabled = config.enabled if config else False
         
         # 异步队列
-        if config.async_mode:
+        if config and config.async_mode:
             self.queue = Queue(maxsize=1000)
             self.worker_thread = threading.Thread(
                 target=self._worker,
@@ -48,6 +49,9 @@ class MonitoringHandler(logging.Handler):
         Args:
             record: 日志记录对象
         """
+        if not self.config or not self.client:
+            return
+
         try:
             # 检查是否启用
             if not self.config.enabled:
