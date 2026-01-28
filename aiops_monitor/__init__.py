@@ -5,7 +5,7 @@ AI-Ops Monitor SDK
 """
 
 __version__ = "0.1.0"
-__author__ = "AI-Ops Team"
+__author__ = "Tuple"
 
 from .client import MonitorClient
 from .config import MonitorConfig

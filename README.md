@@ -183,9 +183,6 @@ mypy aiops_monitor
 
 MIT License - 详见 [LICENSE](LICENSE) 文件
 
-## 🤝 贡献
-
-欢迎贡献！请查看 [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## 📮 联系
 
