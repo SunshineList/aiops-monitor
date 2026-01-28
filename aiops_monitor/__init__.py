@@ -4,7 +4,7 @@ AI-Ops Monitor SDK
 智能日志监控与自动修复 Python SDK
 """
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 __author__ = "Tuple"
 
 from .client import MonitorClient
